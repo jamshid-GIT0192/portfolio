@@ -518,42 +518,33 @@ if (contactSection) {
    CONTACT FORM
 ===================================================== */
 
-const contactForm =
-    document.querySelector("#contactForm");
-
+const contactForm = document.querySelector("#contactForm");
 
 if (contactForm) {
+    contactForm.addEventListener("submit", function (e) {
+        e.preventDefault(); // sahifa qayta yuklanib ketmasligi uchun
 
+        const name = document.querySelector("#name").value;
+        const email = document.querySelector("#email").value;
+        const message = document.querySelector("#message").value;
 
-            const name =
-                document.querySelector("#name").value;
+        const subject = `Portfolio contact from ${name}`;
 
-            const email =
-                document.querySelector("#email").value;
+        const body =
+            `Name: ${name}\n\n` +
+            `Email: ${email}\n\n` +
+            `Message:\n${message}`;
 
-            const message =
-                document.querySelector("#message").value;
-
-
-            const subject =
-                `Portfolio contact from ${name}`;
-
-
-            const body =
-                `Name: ${name}\n\n` +
-                `Email: ${email}\n\n` +
-                `Message:\n${message}`;
-
-
-            window.location.href =
-                `mailto:paygambarqulovv@gmail.com` +
-                `?subject=${encodeURIComponent(subject)}` +
-                `&body=${encodeURIComponent(body)}`;
-
+        window.location.href =
+            `mailto:paygambarqulovv@gmail.com` +
+            `?subject=${encodeURIComponent(subject)}` +
+            `&body=${encodeURIComponent(body)}`;
+    });
+}
         
     
 
-}
+
 /* =====================================================
    BACK TO TOP
 ===================================================== */
